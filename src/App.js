@@ -5,6 +5,7 @@ import "react-bootstrap-typeahead/css/Typeahead.css";
 
 const App = () => {
   const [option, setOption] = useState([]);
+  const [CredentialHandler, setCredentialHandler] = useState([]);
   let map = null;
   let color = [
     "#FF0000",
@@ -53,6 +54,7 @@ const App = () => {
     }, 1000);
   };
   const onChangeHandler = (e) => {
+    setCredentialHandler(e);
     initMap();
     e.map((val, index) => {
       let bounds = {
@@ -81,9 +83,10 @@ const App = () => {
   }, []);
 
   return (
-    <div style={{ height: `100vh` }}>
+    <div className="App">
       <AsyncTypeahead
         id="React_Map_3863"
+        className="Search_Bar"
         align="justify"
         multiple
         labelKey="display_name"
@@ -103,8 +106,39 @@ const App = () => {
           );
         }}
       />
-
-      <div className="maps" id="map"></div>
+      <div className="Google_Map_Container">
+        <div className="maps" id="map"></div>
+        <div className="Table_Data">
+          <table>
+            <thead>
+              <tr>
+                <th>Location</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {CredentialHandler.map((val, index) => {
+                console.log("E", val);
+                return (
+                  <tr>
+                    <td>{val.display_name}</td>
+                    <td className="Btn_Delete">Delete</td>
+                  </tr>
+                );
+              })}
+              <tr>
+                <td>Data</td>
+                <td
+                  style={{ color: "red", cursor: "pointer" }}
+                  onClick={() => {}}
+                >
+                  Delete
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

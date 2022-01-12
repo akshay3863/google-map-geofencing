@@ -1,6 +1,13 @@
 .App {
   text-align: center;
-  background-color: "red";
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.Google_Map_Container {
+  display: flex;
 }
 
 .App-logo {
@@ -30,7 +37,7 @@
 
 .maps {
   width: 100%;
-  height: 95vh;
+  height: 100vh;
 }
 
 .footer {
@@ -38,4 +45,31 @@
   padding-bottom: 40px;
   margin-top: 40px;
   border-top: 1px solid #eee;
+}
+
+.Search_Bar {
+  position: absolute;
+
+  z-index: 9999;
+  bottom: 0;
+}
+
+thead {
+  background-color: rgb(173, 173, 173);
+}
+
+tr:nth-child(odd) td {
+  background: #fff;
+  color: rgb(173, 173, 173);
+}
+
+tr:nth-child(even) td {
+  background: rgb(173, 173, 173);
+  color: #fff;
+}
+td {
+  color: rgb(173, 173, 173);
+  padding: 10px;
+  font-size: 1.125rem;
+  font-weight: normal;
 }
